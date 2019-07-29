@@ -8,7 +8,7 @@
 import sys, os, signal, base64, ldap, Cookie, argparse
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
-#Listen = ('localhost', 8888)
+#Listen = ('localhost', 5600)
 #Listen = "/tmp/auth.sock"    # Also uncomment lines in 'Requests are
                               # processed with UNIX sockets' section below
 
@@ -281,7 +281,7 @@ if __name__ == '__main__':
     group.add_argument('--host',  metavar="hostname",
         default="localhost", help="host to bind (Default: localhost)")
     group.add_argument('-p', '--port', metavar="port", type=int,
-        default=8888, help="port to bind (Default: 8888)")
+        default=5600, help="port to bind (Default: 5600)")
     # ldap options:
     group = parser.add_argument_group(title="LDAP options")
     group.add_argument('-u', '--url', metavar="URL",

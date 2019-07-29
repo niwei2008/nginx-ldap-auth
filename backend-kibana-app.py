@@ -47,25 +47,86 @@ class AppHandler(BaseHTTPRequestHandler):
             return
 
         html="""
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv=Content-Type content="text/html;charset=UTF-8">
-    <title>Auth form example</title>
-  </head>
-  <body>
-    <form action="/login" method="post">
-      <table>
-        <tr>
-          <td>Username: <input type="text" name="username"/></td>
-        <tr>
-          <td>Password: <input type="text" name="password"/></td>
-        <tr>
-          <td><input type="submit" value="Login"></td>
-      </table>
-        <input type="hidden" name="target" value="TARGET">
-    </form>
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+<title>login</title>
+</head>
+<style>
+*{margin:0;padding:0;}
+.login{
+width:400px;
+height:220px;
+margin:0 auto;
+position:absolute;
+left:35%;
+top:25%;
+}
+.login_title{
+color: #000000;
+font: bold 14px/37px Arial,Helvetica,sans-serif;
+height: 37px;
+padding-left: 35px;
+text-align: left;
+}
+ 
+.login_cont {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #B8B7B7;
+    height: 152px;
+    padding-top: 30px;
+}
+.form_table {
+    float: left;
+    margin-top: 10px;
+    table-layout: fixed;
+    width: 100%;
+}
+.form_table th {
+    color: #333333;
+    font-weight: bold;
+    padding: 5px 8px 5px 0;
+    text-align: right;
+    white-space: nowrap;
+}
+.form_table td {
+    color: #717171;
+    line-height: 200%;
+    padding: 6px 0 5px 10px;
+    text-align: left;
+}
+.login_cont input.submit {
+    background-position: 0 -37px;
+    height: 29px;
+    margin: 10px 14px 0 0;
+    width: 38px;
+}
+</style>
+<body>
+    <div class="login">
+        <div class="login_cont">
+            <form action='/login' method='post'>
+                <table class="form_table">
+                    <col width="60px" />
+                    <col />
+                        <p align="center">Welcome to Yodoo Auth System</p>
+                        <p align="center">Please Use Your LDAP Account to login</p>
+                    <tr>
+                        <th>Username</th><td><input class="normal" type="text" name="username" alt="Your Username" /></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th><td><input class="normal" type="password" name="password" alt="Your Password" /></td>
+                    </tr>
+                    <tr>
+                        <th></th><td><input class="submit" type="submit" value="login" /><input class="submit" type="reset" value="cancel" /></td>
+                    </tr>
+                </table>
+                    <input type="hidden" name="target" value="TARGET">
+            </form>
+        </div>
+    </div>
+</body>
 </html>"""
 
         self.send_response(200)
